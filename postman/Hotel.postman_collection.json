@@ -1,0 +1,2513 @@
+{
+	"info": {
+		"_postman_id": "9f363447-b8be-4fa7-baab-ac4f4a998308",
+		"name": "Hotel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13685622"
+	},
+	"item": [
+		{
+			"name": "Place",
+			"item": [
+				{
+					"name": "Create place",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"SweetHotel4\",\n\n    \"geolocation_x\": 123.0,\n    \"geolocation_y\": 321.0,\n    \"country\": \"Iran\",\n    \"city\": \"a\",\n    \"main_street\": \"aa\",\n    \"street\": null,\n    \"house_number\": \"123\",\n    \"floor\": null,\n    \"extra_address_detail\": null,\n    \"zipcode\": null,\n    \"is_ready\": true,\n    \"area\": 200,\n    \"description\": \"description text\",\n    \"rate\": 3,\n    \"policies\": \"policies text\",\n    \"discount_for_full_rent\": 0,\n    \"type\": 1,\n    \"amenities\": [\n        1\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/place/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"place",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create place",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"SweetHotel4\",\n\n    \"geolocation_x\": 123.0,\n    \"geolocation_y\": 321.0,\n    \"country\": \"Iran\",\n    \"city\": \"a\",\n    \"main_street\": \"aa\",\n    \"street\": null,\n    \"house_number\": \"123\",\n    \"floor\": null,\n    \"extra_address_detail\": null,\n    \"zipcode\": null,\n    \"is_ready\": true,\n    \"area\": 200,\n    \"description\": \"description text\",\n    \"rate\": 3,\n    \"policies\": \"policies text\",\n    \"discount_for_full_rent\": 0,\n    \"type\": 1,\n    \"amenities\": [\n        1\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/place/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"place",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:58:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "577"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Created\",\n    \"code\": \"created\",\n    \"data\": {\n        \"id\": 2,\n        \"uuid\": \"3a45a522-e00e-4dbc-ad35-509f7d8e9869\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T20:28:11.641486+03:30\",\n        \"created_time\": \"2023-03-17T20:28:11.640452+03:30\",\n        \"geolocation_x\": 123,\n        \"geolocation_y\": 321,\n        \"country\": \"Iran\",\n        \"city\": \"a\",\n        \"main_street\": \"aa\",\n        \"street\": null,\n        \"house_number\": \"123\",\n        \"floor\": null,\n        \"extra_address_detail\": null,\n        \"zipcode\": null,\n        \"is_ready\": true,\n        \"area\": 200,\n        \"description\": \"description text\",\n        \"name\": \"SweetHotel4\",\n        \"rate\": 3,\n        \"policies\": \"policies text\",\n        \"discount_for_full_rent\": 0,\n        \"owner\": 1,\n        \"type\": 1,\n        \"amenities\": [\n            1\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "list places",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/place/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"place",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list places",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/place/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"place",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:58:02 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "562"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"uuid\": \"4ef40f8f-2f38-4389-850d-bd88286f357a\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T19:08:20.130138+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.129502+03:30\",\n            \"geolocation_x\": 123,\n            \"geolocation_y\": 321,\n            \"country\": \"Iran\",\n            \"city\": \"\",\n            \"main_street\": \"\",\n            \"street\": null,\n            \"house_number\": \"\",\n            \"floor\": null,\n            \"extra_address_detail\": null,\n            \"zipcode\": null,\n            \"is_ready\": true,\n            \"area\": 200,\n            \"description\": \"description text\",\n            \"name\": \"SweetHotel\",\n            \"rate\": 3,\n            \"policies\": \"policies text\",\n            \"discount_for_full_rent\": 0,\n            \"owner\": 1,\n            \"type\": 1,\n            \"amenities\": [\n                1\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "owner-list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/place/owner-list/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"place",
+								"owner-list",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "owner-list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/place/owner-list/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"place",
+										"owner-list",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:57:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "552"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"uuid\": \"4ef40f8f-2f38-4389-850d-bd88286f357a\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T19:08:20.130138+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.129502+03:30\",\n            \"geolocation_x\": 123,\n            \"geolocation_y\": 321,\n            \"country\": \"Iran\",\n            \"city\": \"\",\n            \"main_street\": \"\",\n            \"street\": null,\n            \"house_number\": \"\",\n            \"floor\": null,\n            \"extra_address_detail\": null,\n            \"zipcode\": null,\n            \"is_ready\": true,\n            \"area\": 200,\n            \"description\": \"description text\",\n            \"name\": \"SweetHotel\",\n            \"rate\": 3,\n            \"policies\": \"policies text\",\n            \"discount_for_full_rent\": 0,\n            \"type\": 1,\n            \"amenities\": [\n                1\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "capacity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/place/1/capacity/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"place",
+								"1",
+								"capacity",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "capacity",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/place/1/capacity/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"place",
+										"1",
+										"capacity",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:37:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {\n        \"capacity\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "list room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/room/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list room",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/room/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:32:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "367"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"uuid\": \"e0ccc4b3-5db8-4091-a7ca-217eefc81eab\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T19:08:20.131396+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.131409+03:30\",\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"1\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 10,\n            \"place\": 1,\n            \"amenities\": []\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/room/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Detail room",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/room/1/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 17:03:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "361"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {\n        \"id\": 1,\n        \"uuid\": \"e0ccc4b3-5db8-4091-a7ca-217eefc81eab\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T20:27:42.822519+03:30\",\n        \"created_time\": \"2023-03-17T19:08:20.131409+03:30\",\n        \"is_ready\": true,\n        \"area\": 50,\n        \"description\": \"HIHIHI\",\n        \"room_number\": \"1\",\n        \"bed_count\": 5,\n        \"bathroom_count\": 1,\n        \"type\": 0,\n        \"fee_each_day\": 10,\n        \"place\": 1,\n        \"amenities\": [\n            2\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"HIHIHI\",\n            \"room_number\": \"1\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 10.0,\n            \"place\": 1,\n            \"amenities\": [2]\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/room/1/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"HIHIHI\",\n            \"room_number\": \"1\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 10.0,\n            \"place\": 1,\n            \"amenities\": [2]\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/room/1/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:57:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "361"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {\n        \"id\": 1,\n        \"uuid\": \"e0ccc4b3-5db8-4091-a7ca-217eefc81eab\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T20:27:42.822519+03:30\",\n        \"created_time\": \"2023-03-17T19:08:20.131409+03:30\",\n        \"is_ready\": true,\n        \"area\": 50,\n        \"description\": \"HIHIHI\",\n        \"room_number\": \"1\",\n        \"bed_count\": 5,\n        \"bathroom_count\": 1,\n        \"type\": 0,\n        \"fee_each_day\": 10,\n        \"place\": 1,\n        \"amenities\": [\n            2\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/room/1/delete/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								"1",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/room/2/delete/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										"2",
+										"delete",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:56:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, DELETE, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Delete",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/room/1/delete/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										"1",
+										"delete",
+										""
+									]
+								}
+							},
+							"status": "Unknown Status Code",
+							"code": 454,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:57:04 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, DELETE, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "855"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Room already reserved\",\n    \"code\": \"room_already_reserved\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"uuid\": \"d591c515-b8c3-4391-a85e-aa7c727ac2c7\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T19:08:20.132509+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.132522+03:30\",\n            \"people_count\": 2,\n            \"in_date\": \"2023-03-17\",\n            \"in_time\": \"15:38:20.131627\",\n            \"out_date\": \"2023-03-18\",\n            \"out_time\": \"15:38:20.131631\",\n            \"is_canceled\": false,\n            \"is_extended\": false,\n            \"is_damaged\": false,\n            \"type\": 0,\n            \"charge\": 0,\n            \"room\": 1,\n            \"passenger\": 2\n        },\n        {\n            \"id\": 2,\n            \"uuid\": \"8b362046-35fc-44f8-8c10-d88b72b3d4a6\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T20:07:17.736274+03:30\",\n            \"created_time\": \"2023-03-17T20:07:17.736313+03:30\",\n            \"people_count\": 3,\n            \"in_date\": \"2023-03-18\",\n            \"in_time\": \"23:59:59\",\n            \"out_date\": \"2023-03-19\",\n            \"out_time\": \"23:59:59\",\n            \"is_canceled\": false,\n            \"is_extended\": false,\n            \"is_damaged\": false,\n            \"type\": 0,\n            \"charge\": 10,\n            \"room\": 1,\n            \"passenger\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "create room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"59\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 20.0,\n            \"place\": 1,\n            \"amenities\": [2]\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/room/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create room",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"59\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 20.0,\n            \"place\": 1,\n            \"amenities\": [2]\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/room/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:33:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "377"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Created\",\n    \"code\": \"created\",\n    \"data\": {\n        \"id\": 2,\n        \"uuid\": \"af8ea114-fc26-4f64-bf12-b02bce886ee4\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T20:03:05.587763+03:30\",\n        \"created_time\": \"2023-03-17T20:03:05.587114+03:30\",\n        \"is_ready\": true,\n        \"area\": 50,\n        \"description\": \"description\",\n        \"room_number\": \"59\",\n        \"bed_count\": 5,\n        \"bathroom_count\": 1,\n        \"type\": 0,\n        \"fee_each_day\": 20,\n        \"place\": 1,\n        \"amenities\": [\n            2\n        ]\n    }\n}"
+						},
+						{
+							"name": "create room",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "        {\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"59\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 20.0,\n            \"place\": 1,\n            \"amenities\": [2]\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/room/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:33:19 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"non_field_errors\": [\n        \"The fields place, room_number must make a unique set.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Reserver Room",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"in_date\": \"2023-03-18\",\n    \"in_time\": \"23:59:59\",\n    \"out_date\": \"2023-03-19\",\n    \"out_time\": \"23:59:59\",\n    \"people_count\": 3,\n    \"charge\": 10,\n    \"type\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/room/1/reserve/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								"1",
+								"reserve",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reserver Room",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"in_date\": \"2023-03-18\",\n    \"in_time\": \"23:59:59\",\n    \"out_date\": \"2023-03-19\",\n    \"out_time\": \"23:59:59\",\n    \"people_count\": 3,\n    \"charge\": 10,\n    \"type\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/room/1/reserve/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										"1",
+										"reserve",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:37:17 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, DELETE, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "428"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Created\",\n    \"code\": \"created\",\n    \"data\": {\n        \"id\": 2,\n        \"uuid\": \"8b362046-35fc-44f8-8c10-d88b72b3d4a6\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T20:07:17.736274+03:30\",\n        \"created_time\": \"2023-03-17T20:07:17.736313+03:30\",\n        \"people_count\": 3,\n        \"in_date\": \"2023-03-18\",\n        \"in_time\": \"23:59:59\",\n        \"out_date\": \"2023-03-19\",\n        \"out_time\": \"23:59:59\",\n        \"is_canceled\": false,\n        \"is_extended\": false,\n        \"is_damaged\": false,\n        \"type\": 0,\n        \"charge\": 10,\n        \"room\": 1,\n        \"passenger\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "SignIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if( pm.response.code==200 || pm.response.code==200){",
+									"    var data = JSON.parse(responseBody);",
+									"    postman.setEnvironmentVariable(\"access\",data.access);",
+									"        postman.setEnvironmentVariable(\"refresh\",data.refresh);",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"root@test.com\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/token/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SignIn",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"root@test.com\",\n    \"password\": \"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/token/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:21:27 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "470"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY3OTE1NjQ4NywiaWF0IjoxNjc5MDcwMDg3LCJqdGkiOiI0MDQ2ZjYzOTRlZjM0YTU2ODhiYTcwYWFiNzkxZTE4YyIsImlkIjoxfQ.FgaME4IZViNfsB35ThAqQnKwJPTEEeS4wko2WFLCRfA\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc5MDcwNjg3LCJpYXQiOjE2NzkwNzAwODcsImp0aSI6ImYyZDI2M2UwMGFiZjQ0NjE4ZDgyZDg4ODZmZGQ0NzAyIiwiaWQiOjF9.LPDFKaoWw9mYiTgzZDfDLfcX9UyBpPp06NssbHijcxk\"\n}"
+						}
+					]
+				},
+				{
+					"name": "SignUp",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"passenger3\",\n    \"mobile_number\": \"09123456723\",\n    \"email\": \"passenger3@test.com\",\n    \"province\": \"Tehran\",\n    \"city\": \"Tehran\",\n    \"ID_card\": \"1234657892\",\n    \"password\": \"123\",\n    \"password_repeat\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/email/signup/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"email",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "SignUp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"passenger5\",\n    \"mobile_number\": \"09123456781\",\n    \"email\": \"passenger5@test.com\",\n    \"province\": \"Tehran\",\n    \"city\": \"Tehran\",\n    \"ID_card\": \"1234657892\",\n    \"password\": \"123\",\n    \"password_repeat\": \"123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/email/signup/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"email",
+										"signup",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:07:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {\n        \"is_verified\": false,\n        \"mobile_number\": \"09123456781\",\n        \"avatar\": \"/default_user_profile.png\",\n        \"email\": \"passenger5@test.com\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/user/profile/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/user/profile/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"profile",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:21:35 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "568"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {\n        \"id\": 1,\n        \"last_login\": \"2023-03-17T19:48:33+03:30\",\n        \"is_superuser\": true,\n        \"username\": \"root@test.com\",\n        \"first_name\": \"\",\n        \"last_name\": \"\",\n        \"is_staff\": true,\n        \"date_joined\": \"2023-03-17T19:08:20+03:30\",\n        \"uuid\": \"3a950782-d4ea-4492-a056-cc64c9c0d678\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T19:51:20.473977+03:30\",\n        \"created_time\": \"2023-03-17T19:08:20.045208+03:30\",\n        \"is_verified\": false,\n        \"mobile_number\": null,\n        \"avatar\": \"/default_user_profile.png\",\n        \"email\": \"root@test.com\",\n        \"province\": null,\n        \"city\": null,\n        \"ID_card\": \"id_id_id\",\n        \"groups\": [],\n        \"user_permissions\": []\n    }\n}"
+						},
+						{
+							"name": "Profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/user/profile/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"profile",
+										""
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:21:50 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "WWW-Authenticate",
+									"value": "Bearer realm=\"api\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Given token not valid for any token type\",\n    \"code\": \"token_not_valid\",\n    \"messages\": [\n        {\n            \"token_class\": \"AccessToken\",\n            \"token_type\": \"access\",\n            \"message\": \"Token is invalid or expired\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Email Verification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"passenger3@test.com\",\n    \"otp\": \"79130\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/email/verify/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"email",
+								"verify",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Email Verification",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"passenger3@test.com\",\n    \"otp\": \"79130\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/email/verify/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"email",
+										"verify",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:14:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "152"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {\n        \"is_verified\": true,\n        \"mobile_number\": \"09123456723\",\n        \"avatar\": \"/default_user_profile.png\",\n        \"email\": \"passenger3@test.com\"\n    }\n}"
+						},
+						{
+							"name": "Email Verification",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"passenger3@test.com\",\n    \"otp\": \"7913as0\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/email/verify/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"email",
+										"verify",
+										""
+									]
+								}
+							},
+							"status": "Unknown Status Code",
+							"code": 462,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:14:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Otp expired\",\n    \"code\": \"otp expired\",\n    \"data\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Resend",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"passenger3@test.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/email/resend/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"email",
+								"resend",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"passenger6@test.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/email/resend/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"email",
+										"resend",
+										""
+									]
+								}
+							},
+							"status": "Unknown Status Code",
+							"code": 450,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:16:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"User not found\",\n    \"code\": \"user_not_found\",\n    \"data\": {}\n}"
+						},
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"passenger3@test.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/auth/email/resend/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"email",
+										"resend",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:17:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "Owner profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/owner/profile/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"owner",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/owner/profile/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"owner",
+										"profile",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:23:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "801"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {\n        \"id\": 1,\n        \"user\": {\n            \"id\": 1,\n            \"last_login\": \"2023-03-17T19:48:33+03:30\",\n            \"is_superuser\": true,\n            \"username\": \"root@test.com\",\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"is_staff\": true,\n            \"date_joined\": \"2023-03-17T19:08:20+03:30\",\n            \"uuid\": \"3a950782-d4ea-4492-a056-cc64c9c0d678\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T19:51:20.473977+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.045208+03:30\",\n            \"is_verified\": false,\n            \"mobile_number\": null,\n            \"avatar\": \"/default_user_profile.png\",\n            \"email\": \"root@test.com\",\n            \"province\": null,\n            \"city\": null,\n            \"ID_card\": \"id_id_id\",\n            \"groups\": [],\n            \"user_permissions\": []\n        },\n        \"uuid\": \"7ecb43e6-7076-42c0-82c9-2f49c56f9670\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T19:08:20.125617+03:30\",\n        \"created_time\": \"2023-03-17T19:08:20.125634+03:30\",\n        \"is_verified_owner\": false,\n        \"compony_name\": \"my_compony\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Resreve",
+			"item": [
+				{
+					"name": "user reserved rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/reserve/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reserve",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "user reserved rooms",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/reserve/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"reserve",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:56:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "420"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 2,\n            \"uuid\": \"8b362046-35fc-44f8-8c10-d88b72b3d4a6\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T20:07:17.736274+03:30\",\n            \"created_time\": \"2023-03-17T20:07:17.736313+03:30\",\n            \"people_count\": 3,\n            \"in_date\": \"2023-03-18\",\n            \"in_time\": \"23:59:59\",\n            \"out_date\": \"2023-03-19\",\n            \"out_time\": \"23:59:59\",\n            \"is_canceled\": false,\n            \"is_extended\": false,\n            \"is_damaged\": false,\n            \"type\": 0,\n            \"charge\": 10,\n            \"room\": 1,\n            \"passenger\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Owner reserved rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/reserve/owner/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reserve",
+								"owner",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Owner reserved rooms",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/reserve/owner/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"reserve",
+										"owner",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 16:54:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "817"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"uuid\": \"d591c515-b8c3-4391-a85e-aa7c727ac2c7\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T19:08:20.132509+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.132522+03:30\",\n            \"people_count\": 2,\n            \"in_date\": \"2023-03-17\",\n            \"in_time\": \"15:38:20.131627\",\n            \"out_date\": \"2023-03-18\",\n            \"out_time\": \"15:38:20.131631\",\n            \"is_canceled\": false,\n            \"is_extended\": false,\n            \"is_damaged\": false,\n            \"type\": 0,\n            \"charge\": 0,\n            \"room\": 1,\n            \"passenger\": 2\n        },\n        {\n            \"id\": 2,\n            \"uuid\": \"8b362046-35fc-44f8-8c10-d88b72b3d4a6\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T20:07:17.736274+03:30\",\n            \"created_time\": \"2023-03-17T20:07:17.736313+03:30\",\n            \"people_count\": 3,\n            \"in_date\": \"2023-03-18\",\n            \"in_time\": \"23:59:59\",\n            \"out_date\": \"2023-03-19\",\n            \"out_time\": \"23:59:59\",\n            \"is_canceled\": false,\n            \"is_extended\": false,\n            \"is_damaged\": false,\n            \"type\": 0,\n            \"charge\": 10,\n            \"room\": 1,\n            \"passenger\": 1\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Resserv",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"charge\": 30.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/reserve/2/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"reserve",
+								"2",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"charge\": 30.0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/reserve/2/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"reserve",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 17:02:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "PUT, PATCH, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "418"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": {\n        \"id\": 2,\n        \"uuid\": \"8b362046-35fc-44f8-8c10-d88b72b3d4a6\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T20:32:39.267388+03:30\",\n        \"created_time\": \"2023-03-17T20:07:17.736313+03:30\",\n        \"people_count\": 3,\n        \"in_date\": \"2023-03-18\",\n        \"in_time\": \"23:59:59\",\n        \"out_date\": \"2023-03-19\",\n        \"out_time\": \"23:59:59\",\n        \"is_canceled\": false,\n        \"is_extended\": false,\n        \"is_damaged\": false,\n        \"type\": 0,\n        \"charge\": 30,\n        \"room\": 1,\n        \"passenger\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"in_date\": \"2023-03-17\",\n    \"in_time\": \"23:59:59\",\n    \"out_date\": \"2023-03-30\",\n    \"out_time\": \"23:59:59\",\n    \"passenger_count\": 1,\n    \"country\": null,\n    \"city\": null,\n    \"main_street\": null,\n    \"street\": null,\n    \"fee_currency\": null,\n    \"fee_min\": null,\n    \"fee_max\": null,\n    \"place_amenities\": [\n        \n    ],\n    \"room_amenities\": [\n        \n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/search/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"search",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Search",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"in_date\": \"2023-03-17\",\n    \"in_time\": \"23:59:59\",\n    \"out_date\": \"2023-03-30\",\n    \"out_time\": \"23:59:59\",\n    \"passenger_count\": 1,\n    \"country\": null,\n    \"city\": null,\n    \"main_street\": null,\n    \"street\": null,\n    \"fee_currency\": null,\n    \"fee_min\": null,\n    \"fee_max\": null,\n    \"place_amenities\": [\n        \n    ],\n    \"room_amenities\": [\n        \n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/search/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"search",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 16:52:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.8.10"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Origin"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2097"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"place\": {\n                \"id\": 1,\n                \"owner\": {\n                    \"user\": {\n                        \"is_verified\": false,\n                        \"mobile_number\": null,\n                        \"avatar\": \"/default_user_profile.png\",\n                        \"email\": \"root@test.com\"\n                    },\n                    \"compony_name\": \"my_compony\"\n                },\n                \"amenities\": [\n                    {\n                        \"name\": \"wifi\",\n                        \"type\": 1\n                    }\n                ],\n                \"uuid\": \"4ef40f8f-2f38-4389-850d-bd88286f357a\",\n                \"is_active\": true,\n                \"updated_time\": \"2023-03-17T19:08:20.130138+03:30\",\n                \"created_time\": \"2023-03-17T19:08:20.129502+03:30\",\n                \"geolocation_x\": 123,\n                \"geolocation_y\": 321,\n                \"country\": \"Iran\",\n                \"city\": \"\",\n                \"main_street\": \"\",\n                \"street\": null,\n                \"house_number\": \"\",\n                \"floor\": null,\n                \"extra_address_detail\": null,\n                \"zipcode\": null,\n                \"is_ready\": true,\n                \"area\": 200,\n                \"description\": \"description text\",\n                \"name\": \"SweetHotel\",\n                \"rate\": 3,\n                \"policies\": \"policies text\",\n                \"discount_for_full_rent\": 0,\n                \"type\": 1\n            },\n            \"amenities\": [],\n            \"uuid\": \"e0ccc4b3-5db8-4091-a7ca-217eefc81eab\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T19:08:20.131396+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.131409+03:30\",\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"1\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 10\n        },\n        {\n            \"id\": 2,\n            \"place\": {\n                \"id\": 1,\n                \"owner\": {\n                    \"user\": {\n                        \"is_verified\": false,\n                        \"mobile_number\": null,\n                        \"avatar\": \"/default_user_profile.png\",\n                        \"email\": \"root@test.com\"\n                    },\n                    \"compony_name\": \"my_compony\"\n                },\n                \"amenities\": [\n                    {\n                        \"name\": \"wifi\",\n                        \"type\": 1\n                    }\n                ],\n                \"uuid\": \"4ef40f8f-2f38-4389-850d-bd88286f357a\",\n                \"is_active\": true,\n                \"updated_time\": \"2023-03-17T19:08:20.130138+03:30\",\n                \"created_time\": \"2023-03-17T19:08:20.129502+03:30\",\n                \"geolocation_x\": 123,\n                \"geolocation_y\": 321,\n                \"country\": \"Iran\",\n                \"city\": \"\",\n                \"main_street\": \"\",\n                \"street\": null,\n                \"house_number\": \"\",\n                \"floor\": null,\n                \"extra_address_detail\": null,\n                \"zipcode\": null,\n                \"is_ready\": true,\n                \"area\": 200,\n                \"description\": \"description text\",\n                \"name\": \"SweetHotel\",\n                \"rate\": 3,\n                \"policies\": \"policies text\",\n                \"discount_for_full_rent\": 0,\n                \"type\": 1\n            },\n            \"amenities\": [\n                {\n                    \"name\": \"coffee\",\n                    \"type\": 1\n                }\n            ],\n            \"uuid\": \"af8ea114-fc26-4f64-bf12-b02bce886ee4\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T20:03:05.587763+03:30\",\n            \"created_time\": \"2023-03-17T20:03:05.587114+03:30\",\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"59\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 20\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
