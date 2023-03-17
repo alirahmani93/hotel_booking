@@ -1,0 +1,26 @@
+@media (max-width: 450px) {
+    .service-container .app-item, .filters {
+        flex-direction: column;
+    }
+
+    .service-container .app-item div, .filters div {
+        padding: 5px 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .form-services .last-ping {
+        display: block;
+        white-space: pre-wrap;
+    }
+}
+
+
+@media (max-width: 1050px) {
+}
+
+@media (max-width: 1100px) {
+}
+
+@media (max-width: 1200px) {
+}
