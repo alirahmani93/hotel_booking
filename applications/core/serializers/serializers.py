@@ -31,28 +31,20 @@ class ReserveSerializer(BaseModelSerializer):
 
 
 class BaseReserveRequestSerializer(BaseSerializer):
-    in_date = serializers.DateField()
-    in_time = serializers.TimeField()
-    out_date = serializers.DateField()
-    out_time = serializers.TimeField()
+    in_datetime = serializers.DateTimeField()
+    out_datetime = serializers.DateTimeField()
     people_count = serializers.IntegerField(default=1)
 
     def validate(self, attrs):
         error = []
         msg = 'Earlier times are not acceptable'
-        if not attrs['in_date'] >= get_now().date():
+        if not attrs['in_datetime'] >= get_now():
             error.append({"in_date": msg})
-        else:
-            if not attrs['in_time'] >= get_now().time():
-                error.append({"in_time": msg})
 
-        if not attrs['out_date'] >= get_now().date():
+        if not attrs['out_datetime'] >= get_now():
             error.append({"out_date": msg})
-        else:
-            if not attrs['out_time'] >= get_now().time():
-                error.append({"out_time": msg})
 
-        if not attrs['out_date'] >= attrs['in_date']:
+        if attrs['in_datetime'] >= attrs['out_datetime']:
             error.append({"out_date_and_in_date": 'out_date must greate than in_data'})
 
         if error:

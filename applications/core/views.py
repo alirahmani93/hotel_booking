@@ -1,3 +1,5 @@
+import datetime
+
 from django.db.models import Sum, Count
 from django.db.transaction import atomic
 from rest_framework import mixins
@@ -104,8 +106,8 @@ class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Crea
             )
 
         rooms = Room.objects.filter(place__owner=owner).select_related('place')
-        reserved = Reserve.objects.filter(room__in=rooms.values_list('id', flat=True),
-                                          in_date__gt=get_now().date(), in_time__gt=get_now().time(), )
+        reserved = Reserve.objects.filter(room__in=rooms.values_list('id', flat=True), in_datetime__gt=get_now(),
+                                          out_datetime__lte=get_now() + datetime.timedelta(days=1))
 
         return custom_response(
             status_code=OK_200,
@@ -209,8 +211,7 @@ class RoomViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Creat
         room = self.get_object()
         reserved = Reserve.objects.filter(
             room=room,
-            in_date__gte=valid_data["in_date"], out_date__lte=valid_data["out_date"],
-            in_time__gte=valid_data["in_time"], out_time__lte=valid_data["out_time"],
+            in_datetime__gte=valid_data["in_datetime"], out_datetime__lte=valid_data["out_datetime"],
             room__bed_count__gte=valid_data["people_count"])
         if reserved.exists():
             return custom_response(
@@ -227,10 +228,9 @@ class RoomViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Creat
             room=room,
             passenger=self.request.user,
             people_count=valid_data["people_count"],
-            in_date=valid_data["in_date"],
-            in_time=valid_data["in_time"],
-            out_date=valid_data["out_date"],
-            out_time=valid_data["out_time"],
+            in_datetime=valid_data["in_datetime"],
+
+            out_datetime=valid_data["out_datetime"],
             type=valid_data["type"],
             charge=valid_data["charge"],
         )

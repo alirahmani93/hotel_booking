@@ -26,7 +26,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"SweetHotel4\",\n\n    \"geolocation_x\": 123.0,\n    \"geolocation_y\": 321.0,\n    \"country\": \"Iran\",\n    \"city\": \"a\",\n    \"main_street\": \"aa\",\n    \"street\": null,\n    \"house_number\": \"123\",\n    \"floor\": null,\n    \"extra_address_detail\": null,\n    \"zipcode\": null,\n    \"is_ready\": true,\n    \"area\": 200,\n    \"description\": \"description text\",\n    \"rate\": 3,\n    \"policies\": \"policies text\",\n    \"discount_for_full_rent\": 0,\n    \"type\": 1,\n    \"amenities\": [\n        1\n    ]\n}",
+							"raw": "{\n    \"name\": \"SweetHotel5\",\n\n    \"geolocation_x\": 123.0,\n    \"geolocation_y\": 321.0,\n    \"country\": \"Iran\",\n    \"city\": \"a\",\n    \"main_street\": \"aa\",\n    \"street\": null,\n    \"house_number\": \"123\",\n    \"floor\": null,\n    \"extra_address_detail\": null,\n    \"zipcode\": null,\n    \"is_ready\": true,\n    \"area\": 200,\n    \"description\": \"description text\",\n    \"rate\": 3,\n    \"policies\": \"policies text\",\n    \"discount_for_full_rent\": 0,\n    \"type\": 1,\n    \"amenities\": [\n        1\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1095,7 +1095,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"in_date\": \"2023-03-18\",\n    \"in_time\": \"23:59:59\",\n    \"out_date\": \"2023-03-19\",\n    \"out_time\": \"23:59:59\",\n    \"people_count\": 3,\n    \"charge\": 10,\n    \"type\": 0\n}",
+							"raw": "{\n    \"in_datetime\": \"2023-03-18T21:01:00+03:30\",\n    \"out_datetime\": \"2023-03-20T22:01:00+03:30\",\n    \"people_count\": 3,\n    \"charge\": 10,\n    \"type\": 0\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1192,6 +1192,158 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"detail\": \"Created\",\n    \"code\": \"created\",\n    \"data\": {\n        \"id\": 2,\n        \"uuid\": \"8b362046-35fc-44f8-8c10-d88b72b3d4a6\",\n        \"is_active\": true,\n        \"updated_time\": \"2023-03-17T20:07:17.736274+03:30\",\n        \"created_time\": \"2023-03-17T20:07:17.736313+03:30\",\n        \"people_count\": 3,\n        \"in_date\": \"2023-03-18\",\n        \"in_time\": \"23:59:59\",\n        \"out_date\": \"2023-03-19\",\n        \"out_time\": \"23:59:59\",\n        \"is_canceled\": false,\n        \"is_extended\": false,\n        \"is_damaged\": false,\n        \"type\": 0,\n        \"charge\": 10,\n        \"room\": 1,\n        \"passenger\": 1\n    }\n}"
+						},
+						{
+							"name": "Reserver Room",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"in_datetime\": \"2023-03-21T21:01:00+03:30\",\n    \"out_datetime\": \"2023-03-20T22:01:00+03:30\",\n    \"people_count\": 3,\n    \"charge\": 10,\n    \"type\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/room/1/reserve/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										"1",
+										"reserve",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 18:10:59 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, DELETE, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"non_field_errors\": [\n        {\n            \"out_date_and_in_date\": \"out_date must greate than in_data\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Reserver Room",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"in_datetime\": \"2023-03-18T21:01:00+03:30\",\n    \"out_datetime\": \"2023-03-20T22:01:00+03:30\",\n    \"people_count\": 3,\n    \"charge\": 10,\n    \"type\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/room/1/reserve/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"room",
+										"1",
+										"reserve",
+										""
+									]
+								}
+							},
+							"status": "Unknown Status Code",
+							"code": 454,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 17 Mar 2023 18:11:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, DELETE, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Room already reserved\",\n    \"code\": \"room_already_reserved\",\n    \"data\": {}\n}"
 						}
 					]
 				}
@@ -2390,7 +2542,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"in_date\": \"2023-03-17\",\n    \"in_time\": \"23:59:59\",\n    \"out_date\": \"2023-03-30\",\n    \"out_time\": \"23:59:59\",\n    \"passenger_count\": 1,\n    \"country\": null,\n    \"city\": null,\n    \"main_street\": null,\n    \"street\": null,\n    \"fee_currency\": null,\n    \"fee_min\": null,\n    \"fee_max\": null,\n    \"place_amenities\": [\n        \n    ],\n    \"room_amenities\": [\n        \n    ]\n}",
+					"raw": "{\n    \"in_datetime\":  \"2023-03-18T21:01:00+03:30\",\n    \"out_datetime\":  \"2023-03-21T21:01:00+03:30\",\n    \"passenger_count\": 1,\n    \"country\": null,\n    \"city\": null,\n    \"main_street\": null,\n    \"street\": null,\n    \"fee_currency\": null,\n    \"fee_min\": null,\n    \"fee_max\": null,\n    \"place_amenities\": [\n        \n    ],\n    \"room_amenities\": [\n        \n    ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -2417,7 +2569,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"in_date\": \"2023-03-17\",\n    \"in_time\": \"23:59:59\",\n    \"out_date\": \"2023-03-30\",\n    \"out_time\": \"23:59:59\",\n    \"passenger_count\": 1,\n    \"country\": null,\n    \"city\": null,\n    \"main_street\": null,\n    \"street\": null,\n    \"fee_currency\": null,\n    \"fee_min\": null,\n    \"fee_max\": null,\n    \"place_amenities\": [\n        \n    ],\n    \"room_amenities\": [\n        \n    ]\n}",
+							"raw": "{\n    \"in_datetime\":  \"2023-03-18T21:01:00+03:30\",\n    \"out_datetime\":  \"2023-03-21T21:01:00+03:30\",\n    \"passenger_count\": 1,\n    \"country\": null,\n    \"city\": null,\n    \"main_street\": null,\n    \"street\": null,\n    \"fee_currency\": null,\n    \"fee_min\": null,\n    \"fee_max\": null,\n    \"place_amenities\": [\n        \n    ],\n    \"room_amenities\": [\n        \n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2442,7 +2594,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Fri, 17 Mar 2023 16:52:30 GMT"
+							"value": "Fri, 17 Mar 2023 18:12:48 GMT"
 						},
 						{
 							"key": "Server",
@@ -2466,7 +2618,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "2097"
+							"value": "2118"
 						},
 						{
 							"key": "X-Content-Type-Options",
@@ -2482,7 +2634,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"place\": {\n                \"id\": 1,\n                \"owner\": {\n                    \"user\": {\n                        \"is_verified\": false,\n                        \"mobile_number\": null,\n                        \"avatar\": \"/default_user_profile.png\",\n                        \"email\": \"root@test.com\"\n                    },\n                    \"compony_name\": \"my_compony\"\n                },\n                \"amenities\": [\n                    {\n                        \"name\": \"wifi\",\n                        \"type\": 1\n                    }\n                ],\n                \"uuid\": \"4ef40f8f-2f38-4389-850d-bd88286f357a\",\n                \"is_active\": true,\n                \"updated_time\": \"2023-03-17T19:08:20.130138+03:30\",\n                \"created_time\": \"2023-03-17T19:08:20.129502+03:30\",\n                \"geolocation_x\": 123,\n                \"geolocation_y\": 321,\n                \"country\": \"Iran\",\n                \"city\": \"\",\n                \"main_street\": \"\",\n                \"street\": null,\n                \"house_number\": \"\",\n                \"floor\": null,\n                \"extra_address_detail\": null,\n                \"zipcode\": null,\n                \"is_ready\": true,\n                \"area\": 200,\n                \"description\": \"description text\",\n                \"name\": \"SweetHotel\",\n                \"rate\": 3,\n                \"policies\": \"policies text\",\n                \"discount_for_full_rent\": 0,\n                \"type\": 1\n            },\n            \"amenities\": [],\n            \"uuid\": \"e0ccc4b3-5db8-4091-a7ca-217eefc81eab\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T19:08:20.131396+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.131409+03:30\",\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"1\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 10\n        },\n        {\n            \"id\": 2,\n            \"place\": {\n                \"id\": 1,\n                \"owner\": {\n                    \"user\": {\n                        \"is_verified\": false,\n                        \"mobile_number\": null,\n                        \"avatar\": \"/default_user_profile.png\",\n                        \"email\": \"root@test.com\"\n                    },\n                    \"compony_name\": \"my_compony\"\n                },\n                \"amenities\": [\n                    {\n                        \"name\": \"wifi\",\n                        \"type\": 1\n                    }\n                ],\n                \"uuid\": \"4ef40f8f-2f38-4389-850d-bd88286f357a\",\n                \"is_active\": true,\n                \"updated_time\": \"2023-03-17T19:08:20.130138+03:30\",\n                \"created_time\": \"2023-03-17T19:08:20.129502+03:30\",\n                \"geolocation_x\": 123,\n                \"geolocation_y\": 321,\n                \"country\": \"Iran\",\n                \"city\": \"\",\n                \"main_street\": \"\",\n                \"street\": null,\n                \"house_number\": \"\",\n                \"floor\": null,\n                \"extra_address_detail\": null,\n                \"zipcode\": null,\n                \"is_ready\": true,\n                \"area\": 200,\n                \"description\": \"description text\",\n                \"name\": \"SweetHotel\",\n                \"rate\": 3,\n                \"policies\": \"policies text\",\n                \"discount_for_full_rent\": 0,\n                \"type\": 1\n            },\n            \"amenities\": [\n                {\n                    \"name\": \"coffee\",\n                    \"type\": 1\n                }\n            ],\n            \"uuid\": \"af8ea114-fc26-4f64-bf12-b02bce886ee4\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T20:03:05.587763+03:30\",\n            \"created_time\": \"2023-03-17T20:03:05.587114+03:30\",\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"59\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 20\n        }\n    ]\n}"
+					"body": "{\n    \"detail\": \"OK\",\n    \"code\": \"OK\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"place\": {\n                \"id\": 1,\n                \"owner\": {\n                    \"user\": {\n                        \"is_verified\": false,\n                        \"mobile_number\": null,\n                        \"avatar\": \"/default_user_profile.png\",\n                        \"email\": \"root@test.com\"\n                    },\n                    \"compony_name\": \"my_compony\"\n                },\n                \"amenities\": [\n                    {\n                        \"name\": \"wifi\",\n                        \"type\": 1\n                    }\n                ],\n                \"uuid\": \"4ef40f8f-2f38-4389-850d-bd88286f357a\",\n                \"is_active\": true,\n                \"updated_time\": \"2023-03-17T19:08:20.130138+03:30\",\n                \"created_time\": \"2023-03-17T19:08:20.129502+03:30\",\n                \"geolocation_x\": 123,\n                \"geolocation_y\": 321,\n                \"country\": \"Iran\",\n                \"city\": \"\",\n                \"main_street\": \"\",\n                \"street\": null,\n                \"house_number\": \"\",\n                \"floor\": null,\n                \"extra_address_detail\": null,\n                \"zipcode\": null,\n                \"is_ready\": true,\n                \"area\": 200,\n                \"description\": \"description text\",\n                \"name\": \"SweetHotel\",\n                \"rate\": 3,\n                \"policies\": \"policies text\",\n                \"discount_for_full_rent\": 0,\n                \"type\": 1\n            },\n            \"amenities\": [\n                {\n                    \"name\": \"coffee\",\n                    \"type\": 1\n                }\n            ],\n            \"uuid\": \"e0ccc4b3-5db8-4091-a7ca-217eefc81eab\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T21:34:11.773513+03:30\",\n            \"created_time\": \"2023-03-17T19:08:20.131409+03:30\",\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"HIHIHI\",\n            \"room_number\": \"1\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 10\n        },\n        {\n            \"id\": 3,\n            \"place\": {\n                \"id\": 1,\n                \"owner\": {\n                    \"user\": {\n                        \"is_verified\": false,\n                        \"mobile_number\": null,\n                        \"avatar\": \"/default_user_profile.png\",\n                        \"email\": \"root@test.com\"\n                    },\n                    \"compony_name\": \"my_compony\"\n                },\n                \"amenities\": [\n                    {\n                        \"name\": \"wifi\",\n                        \"type\": 1\n                    }\n                ],\n                \"uuid\": \"4ef40f8f-2f38-4389-850d-bd88286f357a\",\n                \"is_active\": true,\n                \"updated_time\": \"2023-03-17T19:08:20.130138+03:30\",\n                \"created_time\": \"2023-03-17T19:08:20.129502+03:30\",\n                \"geolocation_x\": 123,\n                \"geolocation_y\": 321,\n                \"country\": \"Iran\",\n                \"city\": \"\",\n                \"main_street\": \"\",\n                \"street\": null,\n                \"house_number\": \"\",\n                \"floor\": null,\n                \"extra_address_detail\": null,\n                \"zipcode\": null,\n                \"is_ready\": true,\n                \"area\": 200,\n                \"description\": \"description text\",\n                \"name\": \"SweetHotel\",\n                \"rate\": 3,\n                \"policies\": \"policies text\",\n                \"discount_for_full_rent\": 0,\n                \"type\": 1\n            },\n            \"amenities\": [\n                {\n                    \"name\": \"coffee\",\n                    \"type\": 1\n                }\n            ],\n            \"uuid\": \"6ab859ec-9c95-4cd3-af2f-12747ce472e0\",\n            \"is_active\": true,\n            \"updated_time\": \"2023-03-17T21:34:21.847043+03:30\",\n            \"created_time\": \"2023-03-17T21:34:21.846275+03:30\",\n            \"is_ready\": true,\n            \"area\": 50,\n            \"description\": \"description\",\n            \"room_number\": \"59\",\n            \"bed_count\": 5,\n            \"bathroom_count\": 1,\n            \"type\": 0,\n            \"fee_each_day\": 20\n        }\n    ]\n}"
 				}
 			]
 		}

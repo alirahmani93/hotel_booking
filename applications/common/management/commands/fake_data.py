@@ -58,9 +58,7 @@ class Command(BaseCommand):
             room=room,
             passenger=passenger,
             people_count=2,
-            in_date=get_now().date(),
-            in_time=get_now().time(),
-            out_date=get_now().date() + timedelta(days=1),
-            out_time=get_now().time(),
+            in_datetime=get_now(),
+            out_datetime=get_now() + timedelta(days=1),
         )
         print('fake data done!')

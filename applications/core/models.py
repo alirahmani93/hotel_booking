@@ -136,11 +136,8 @@ class Reserve(BaseModel):
     passenger = models.ForeignKey(verbose_name=_('passenger'), to=User, on_delete=models.PROTECT)
 
     people_count = models.PositiveIntegerField(verbose_name=_('people_count'), default=1)
-    in_date = models.DateField(verbose_name=_('in_date'), )
-    in_time = models.TimeField(verbose_name=_('in_time'), )
-
-    out_date = models.DateField(verbose_name=_('out_date'), )
-    out_time = models.TimeField(verbose_name=_('out_time'), )
+    in_datetime = models.DateTimeField(verbose_name=_('in date time'), )
+    out_datetime = models.DateTimeField(verbose_name=_('out date time'), )
 
     is_canceled = models.BooleanField(verbose_name=_('is_canceled'), default=False)
     is_extended = models.BooleanField(verbose_name=_('is_extended'), default=False)
@@ -154,6 +151,6 @@ class Reserve(BaseModel):
     @classmethod
     def reserve_exclude_options(cls, valid_data):
         return cls.objects.select_related("room").filter(
-            in_date__gte=valid_data["in_date"], out_date__lte=valid_data["out_date"],
+            in_datetime__gte=valid_data["in_datetime"], out_datetime__lte=valid_data["out_datetime"],
             room__bed_count__lte=valid_data["people_count"]
         )
