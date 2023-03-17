@@ -1,0 +1,77 @@
+version: '3.3'
+
+services:
+  redis:
+    image: redis:7.0.2-alpine
+    container_name: ${PROJECT_NAME}-redis
+    restart: unless-stopped
+#    command: redis-server --save ${REDIS_DUMP_INTERVAL} 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+#    volumes:
+#      - redis:/data
+    env_file:
+      - ./.env
+    ports:
+      - "6379:6379"
+
+  web:
+    build: .
+    command: sh -c "
+      python manage.py migrate &&
+      python manage.py create_superuser &&
+      yes | python manage.py collectstatic --no-input &&
+      python -m django compilemessages -f &&
+      gunicorn ${PROJECT_NAME}.wsgi:application --workers=${GUNICORN_WORKERS} --timeout=${GUNICORN_TIMEOUT} --bind 0.0.0.0:${GUNICORN_PORT}"
+    volumes:
+      - .:/app
+      - static_volume:/app/static
+      - media_volume:/app/media
+    container_name: ${PROJECT_NAME}-app
+    ports:
+      - ${GUNICORN_PORT}:8000
+    env_file:
+      - ./.env
+    restart: unless-stopped
+    depends_on:
+      - redis
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://${SITE_URL}/${GUNICORN_PORT}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  nginx:
+    build: ./nginx
+    restart: unless-stopped
+    container_name: ${PROJECT_NAME}-nginx
+    volumes:
+      - static_volume:/app/static
+      - media_volume:/app/media
+      - ./nginx/conf/:/etc/nginx/conf.d/:rw
+      - ../certbot/www:/var/www/certbot/:ro
+      - ../certbot/conf/:/etc/nginx/ssl/:ro
+    env_file:
+      - ./.env
+    depends_on:
+      - web
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "${WEB_PROTOCOL}://${SITE_URL}/" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
+  certbot:
+    image: certbot/certbot:latest
+    container_name: ${PROJECT_NAME}-certbot
+    volumes:
+      - ../certbot/www/:/var/www/certbot/:rw
+      - ../certbot/conf/:/etc/letsencrypt/:rw
+    env_file:
+      - ./.env
+
+
+volumes:
+  static_volume:
+  media_volume:
+#  redis:
+#    driver: local
+
