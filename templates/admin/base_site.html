@@ -1,0 +1,96 @@
+{% extends 'admin/base_site.html' %}
+
+{% load static %}
+{% load i18n static i18n_switcher shared_tag %}
+
+{% block extrahead %}
+    <!--[if IE]><link rel="icon" href="{% static 'img/fav.ico' %}" /><![endif]-->
+    <link rel="icon" type="image/png" href="{% static 'img/fav.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}"/>
+    {% if LANGUAGE_CODE == 'fa' %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/rtl.css' %}"/>
+    {% endif %}
+{% endblock %}
+
+{% block branding %}
+    {% version as version %}
+    {#    <img class="logo" style="height: 150px" alt="birdist" src="{% static 'img/ja2.jpg' %}">#}
+    <div class="site-title">
+        {{ block.super }}
+        <div class="blocking-version">{% trans 'Version' %}: {{ version }}</div>
+    </div>
+{% endblock %}
+
+{% block usertools %}
+    <link rel="shortcut icon" type="image/png" href="{% static '/img/fav.ico' %}"/>
+
+    {% if has_permission %}
+        <div id="user-tools">
+            {% block welcome-msg %}
+                {% if 'en' in LANGUAGE_CODE %}
+                    {% trans 'Welcome,' %}
+                    <strong>{{ user.title }} {% firstof user.get_full_name user.get_username %}</strong>.
+                {% endif %}
+
+                {% if 'fa' in LANGUAGE_CODE %}
+                    <strong>{{ user.title }} {% firstof user.get_full_name user.get_username %}</strong>.
+                    {% trans 'Welcome,' %}
+                {% endif %}
+            {% endblock %}
+
+
+
+
+            {% block userlinks %}
+                {% if site_url %}
+                    {% if user.is_staff %}
+
+                        <a href="/api/">{% translate 'View APIs' %}</a> /
+
+                    {% endif %}
+                {% endif %}
+                {% if user.is_active and user.is_staff %}
+                    {% url 'django-admindocs-docroot' as docsroot %}
+                    {% if docsroot %}
+                        <a href="{{ docsroot }}">{% translate 'Documentation' %}</a> /
+                    {% endif %}
+                {% endif %}
+                {% if user.has_usable_password %}
+                    <a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a> /
+                {% endif %}
+                <a href="{% url 'admin:logout' %}">{% translate 'Log out' %}</a> /
+
+
+
+
+                {#                {% if 'en' in LANGUAGE_CODE %}#}
+                {#                    <a href="{{ request|switch_i18n:'fa' }}">#}
+                {#                        فارسی#}
+                {#                        <img class="i18n_flag" src="{% static '/img/fa.png' %}"/>#}
+                {##}
+                {#                    </a>#}
+                {#                {% elif 'fa' in LANGUAGE_CODE %}#}
+                {#                    <a href="{{ request|switch_i18n:'en' }}">#}
+                {#                        English#}
+                {#                        <img class="i18n_flag" src="{% static 'img/en.png' %}"/>#}
+                {#                    </a>#}
+                {#                {% endif %}#}
+                {#                /#}
+                {% if user.is_active and user.is_staff %}
+                    {% url 'django-admindocs-docroot' as docsroot %}
+                    {% if docsroot %}
+                        <a href="{{ docsroot }}">{% trans 'Documentation' %}</a> /
+                    {% endif %}
+                {% endif %}
+                {% if user.has_usable_password and not user.is_staff %}
+                    <a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a> /
+                {% endif %}
+                <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+
+
+
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<htmllang="en">
+<head>
+  <metacharset="UTF-8"/>
+  <metaname="viewport"content="width=device-width, initial-scale=1.0"/>
+  <title>Medrick Service Manager Registraion</title>
+  <style>
+
+    svg {
+        margin: auto;
+        width: 50%;
+
+        padding: 10px;
+    }
+    .opt-uri {
+      margin-top: auto;
+        width: 50%;
+        border: 3px solid black;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+<h1>Dear <em>{{username}}</em>,</h1> <p>Here are your login info for Medrick Service Manager:</p>
+<hr>
+<ul>
+<li><b>Login_URL:</b> <a href="{{login_url}}">{{login_url}}</a></li>
+<li><b>Username:</b> {{username}}</li>
+<li><b>Email:</b> {{email}}</li>
+<li><b>Mobile number:</b> {{mobile}}</li>
+
+<li><b>OTP QR code:</b></li> 
+</ul>{{qrcode_img}}
+<br>
+<p class="opt-uri">{{qrcode_uri}}</p>
+<br>
+<hr>
+<i>To use the QR code, get Google Authenticator and scan the image above inside Authenticator app: <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en&gl=US">Android</a> | <a  href="https://apps.apple.com/us/app/google-authenticator/id388497605"> iOS </a></i>
+<br>
+<i>Or, you could use Microsoft Authenticator: <a href="https://play.google.com/store/apps/details?id=com.azure.authenticator&hl=en&gl=US">Android</a> | <a href="https://apps.apple.com/us/app/microsoft-authenticator/id983156458"> iOS </a></i></body>
+
+
+
+</html>
