@@ -30,13 +30,10 @@ class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Crea
             data=super().list(request, *args, **kwargs).data,
         )
 
-    @action(detail=False, methods=["GET"], url_name="owner/list", url_path="owner-list",
+    @action(detail=False, methods=["GET"], url_name="owner-list", url_path="owner-list",
             serializer_class=CreatePlaceSerializers)
     def list_owner_places(self, request, *args, **kwargs):
         owner = self.request.user.owner
-        if not owner:
-            return custom_response(status_code=USER_NOT_OWNER_458, data={})
-
         query = Place.objects.filter(owner=owner)
         return custom_response(
             status_code=OK_200,
@@ -45,11 +42,6 @@ class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Crea
 
     @atomic
     def create(self, request, *args, **kwargs):
-        if not self.request.user.owner:
-            return custom_response(
-                status_code=USER_NOT_OWNER_458,
-                data={},
-            )
         serializer, valid_data = self.data_validation()
         place = Place.objects.filter(owner=self.request.user.owner, name=valid_data['name'])
         if place.exists():
@@ -68,7 +60,7 @@ class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Crea
             data=self.serializer_class(new_place).data,
         )
 
-    @action(detail=True, methods=["POST"], url_name="place/delete", url_path="delete",
+    @action(detail=True, methods=["POST"], url_name="place-delete", url_path="delete",
             serializer_class=CreatePlaceSerializers)
     @atomic
     def delete_place(self, request, *args, **kwargs):

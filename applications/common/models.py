@@ -135,7 +135,7 @@ class Configuration(SingletonBaseModel):
             "maintenance_mode": data.maintenance_mode,
             "bypass_verification_email": data.bypass_verification_email,
             "server_time_zone": data.server_time_zone,
-            'config': data.config
+            'config': data.config.all()
         }
 
     def save(self, *args, **kwargs):

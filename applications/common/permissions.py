@@ -9,5 +9,8 @@ class IsOwner(BasePermission):
     def has_permission(self, request, view) -> bool:
         state: bool = False
         if request.user.is_authenticated:
-            state = True if request.user.owner else False
+            try:
+                state = True if request.user.owner else False
+            except:
+                pass
         return state
