@@ -2,8 +2,7 @@ from django.core.cache import cache
 from django.db.transaction import atomic
 from rest_framework import mixins
 from rest_framework.decorators import action
-from rest_framework.decorators import permission_classes as perm
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny
 
 from applications.common.statuses import *
 from applications.common.utils.email import send_email

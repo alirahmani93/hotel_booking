@@ -1,6 +1,5 @@
 import datetime
 
-from django.db.models import Sum, Count
 from django.db.transaction import atomic
 from rest_framework import mixins
 from rest_framework.decorators import action
@@ -8,7 +7,6 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.decorators import permission_classes as perm
 
 from applications.common.permissions import IsOwner
-from applications.common.serializers.base import BaseSerializer
 from applications.common.statuses import *
 from applications.common.utils.response import custom_response
 from applications.common.utils.time import get_now
@@ -18,7 +16,6 @@ from applications.core.serializers.serializers import ReserveSerializer, SearchR
     ReserveRequestSerializer
 from applications.core.serializers.place_seriaiizers import PlaceSerializer, CreatePlaceSerializers
 from applications.core.serializers.room_serializers import RoomSerializers, SearchRoomSerializer
-from applications.user.models import User
 
 
 class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin,

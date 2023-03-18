@@ -1,7 +1,6 @@
 import os
 from datetime import timedelta
 
-from django.contrib.auth import get_user_model
 from django.core.management import BaseCommand
 from django.db.transaction import atomic
 

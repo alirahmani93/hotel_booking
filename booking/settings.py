@@ -12,8 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 VERSION = os.environ.get('VERSION', '0.2.5')
 SITE_ID = 1
 
-SITE_HEADER = _('Listing Manager')
-SITE_TITLE = _('Welcome to Listing Manager')
+SITE_HEADER = _('Hotel Booking Manager')
+SITE_TITLE = _('Welcome to Hotel Booking Manager')
 WEB_PROTOCOL = os.environ.get('WEB_PROTOCOL', 'http')
 SITE_URL = os.environ.get('SITE_URL', (WEB_PROTOCOL + "://" + "127.0.0.1:8001"))
 
