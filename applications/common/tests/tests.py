@@ -18,11 +18,11 @@ class CommonBaseTestCase(BaseTestCase):
 class CommonTestCase(CommonBaseTestCase):
     def setUp(self, empty=False) -> None:
         super(CommonTestCase, self).setUp(empty=False)
-        cache.clear()
         self.json_config, _ = JsonConfig.objects.get_or_create(name='config', config={"A": "A"})
         self.config, _ = Configuration.objects.get_or_create()
         self.config.config.add(self.json_config)
         self.config.save()
+        cache.clear()
 
     def test_app_config(self):
         self.response = self.client.get(reverse('app-list'))
@@ -32,9 +32,7 @@ class CommonTestCase(CommonBaseTestCase):
                 'app_name': settings.PROJECT_NAME, 'version': settings.VERSION, 'social_media_link': None,
                 'deep_link_prefix': '', 'maintenance_mode': False, 'bypass_verification_email': False,
                 'server_time_zone': 'Asia/Tehran', 'server_time': self.decoded['server_time'],
-                'config': [],
-            }
-        )
+                'config': []})
 
     def test_ping(self):
         self.response = self.client.get(reverse('app-ping'))
