@@ -2526,6 +2526,280 @@
 			]
 		},
 		{
+			"name": "Common",
+			"item": [
+				{
+					"name": "app configuration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/app/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"app",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "app configuration",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/app/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"app",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 08:06:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "296"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"app_name\": \"booking\",\n    \"version\": \"0.2.5\",\n    \"social_media_link\": null,\n    \"config\": [\n        {\n            \"name\": \"name\",\n            \"config\": {\n                \"A\": \"A\"\n            },\n            \"min_client_version\": 0,\n            \"max_client_version\": 1\n        }\n    ],\n    \"deep_link_prefix\": \"\",\n    \"maintenance_mode\": false,\n    \"bypass_verification_email\": false,\n    \"server_time_zone\": \"Asia/Tehran\",\n    \"server_time\": 1679126766\n}"
+						}
+					]
+				},
+				{
+					"name": "healt check json",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/app/health/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"app",
+								"health",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "healt check json",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/app/health/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"app",
+										"health",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 08:55:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"app_name\": \"booking\",\n    \"version\": \"0.2.5\",\n    \"app\": true,\n    \"database\": true,\n    \"redis\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "ping",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/app/ping/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"app",
+								"ping",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ping",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/app/ping/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"app",
+										"ping",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 18 Mar 2023 08:56:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"PONG\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "Search",
 			"request": {
 				"auth": {
