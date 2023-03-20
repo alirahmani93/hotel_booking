@@ -18,8 +18,6 @@ class UserViewSet(mixins.ListModelMixin, BaseViewSet):
     serializer_class = UserSerializer
 
     def get_queryset(self):
-        print(self.queryset.filter(id=self.request.user.id)
-              )
         return self.queryset.filter(id=self.request.user.id)
 
     @action(detail=False, methods=["GET"], url_name="profile", url_path="profile", serializer_class=ProfileSerializer)
