@@ -4,7 +4,7 @@ from rest_framework import mixins
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
 
-from applications.common.statuses import *
+from applications import *
 from applications.common.utils.email import send_email
 from applications.common.utils.response import custom_response
 from applications.common.views import BaseViewSet
@@ -39,7 +39,7 @@ class AuthViewSet(mixins.ListModelMixin, BaseViewSet):
         user = User.objects.filter(email=email)
         if user.exists():
             return custom_response(
-                status_code=USER_ALREADY_EXISTS_461,
+                status_code=USER_ALREADY_EXISTS_409,
                 data={}
             )
         new_user = User.objects.create(
@@ -67,14 +67,14 @@ class AuthViewSet(mixins.ListModelMixin, BaseViewSet):
         email = valid_data['email']
         if not cache.get(email) == valid_data['otp']:
             return custom_response(
-                status_code=OTP_EXPIRED,
+                status_code=OTP_EXPIRED_400,
                 data={}
             )
 
         user = User.objects.filter(email=email)
         if not user.exists():
             return custom_response(
-                status_code=USER_NOT_FOUND_450,
+                status_code=USER_NOT_FOUND_404,
                 data={}
             )
         user = user.first()
@@ -95,7 +95,7 @@ class AuthViewSet(mixins.ListModelMixin, BaseViewSet):
         user = User.objects.filter(email=email)
         if not user.exists():
             return custom_response(
-                status_code=USER_NOT_FOUND_450,
+                status_code=USER_NOT_FOUND_404,
                 data={}
             )
         user = user.first()

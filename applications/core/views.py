@@ -3,19 +3,19 @@ import datetime
 from django.db.transaction import atomic
 from rest_framework import mixins
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.decorators import permission_classes as perm
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 
+from applications import *
 from applications.common.permissions import IsOwner
-from applications.common.statuses import *
 from applications.common.utils.response import custom_response
 from applications.common.utils.time import get_now
 from applications.common.views import BaseViewSet, BaseAPIView
 from applications.core.models import Room, Reserve, Place
-from applications.core.serializers.serializers import ReserveSerializer, SearchRequestSerializer, \
-    ReserveRequestSerializer
 from applications.core.serializers.place_seriaiizers import PlaceSerializer, CreatePlaceSerializers
 from applications.core.serializers.room_serializers import RoomSerializers, SearchRoomSerializer
+from applications.core.serializers.serializers import ReserveSerializer, SearchRequestSerializer, \
+    ReserveRequestSerializer
 
 
 class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin,
@@ -46,7 +46,7 @@ class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Crea
         place = Place.objects.filter(owner=self.request.user.owner, name=valid_data['name'])
         if place.exists():
             return custom_response(
-                status_code=PLACE_ALREADY_EXISTS_459,
+                status_code=PLACE_ALREADY_EXISTS_409,
                 data=self.serializer_class(place.first()).data,
             )
         new_place = Place.objects.create(
@@ -74,7 +74,7 @@ class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Crea
         reserved_rooms = Reserve.objects.filter(room__place=place)
         if reserved_rooms.exists():
             return custom_response(
-                status_code=ROOM_ALREADY_RESERVED_454,
+                status_code=ROOM_ALREADY_RESERVED_409,
                 data=ReserveSerializer(reserved_rooms, many=True).data,
             )
 
@@ -90,7 +90,7 @@ class PlaceViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Crea
         place = self.get_object()
         if not place.owner == self.request.user.owner:
             return custom_response(
-                status_code=OWNERSHIP_ERROR_463,
+                status_code=OWNERSHIP_ERROR_409,
                 data={}
             )
 
@@ -136,7 +136,7 @@ class RoomViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Creat
         place = Place.objects.filter(id=valid_data['place'].id, owner=self.request.user.owner)
         if not place.exists():
             custom_response(
-                status_code=PLACE_NOT_FOUND_457,
+                status_code=PLACE_NOT_FOUND_404,
                 data={},
             )
 
@@ -144,7 +144,7 @@ class RoomViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Creat
                                    place__owner=self.request.user.owner)
         if room.exists():
             custom_response(
-                status_code=ROOM_ALREADY_EXISTS_456,
+                status_code=ROOM_ALREADY_EXISTS_409,
                 data={},
             )
         new_room = Room.objects.create(**Room.prepare_room_data_for_create(valid_data=valid_data))
@@ -182,7 +182,7 @@ class RoomViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Creat
         reserved_rooms = room.reserve_set.filter(is_active=True)
         if reserved_rooms.exists():
             return custom_response(
-                status_code=ROOM_ALREADY_RESERVED_454,
+                status_code=ROOM_ALREADY_RESERVED_409,
                 data=ReserveSerializer(reserved_rooms, many=True).data,
             )
         return custom_response(
@@ -204,13 +204,13 @@ class RoomViewSet(mixins.ListModelMixin, mixins.RetrieveModelMixin, mixins.Creat
             room__bed_count__gte=valid_data["people_count"])
         if reserved.exists():
             return custom_response(
-                status_code=ROOM_ALREADY_RESERVED_454,
+                status_code=ROOM_ALREADY_RESERVED_409,
                 data={}
             )
 
         if room.bed_count < valid_data["people_count"]:
             return custom_response(
-                status_code=RESERVE_NOT_ENOUGH_BED_460,
+                status_code=RESERVE_NOT_ENOUGH_BED_400,
                 data={}
             )
         reserve_room = Reserve.objects.create(
