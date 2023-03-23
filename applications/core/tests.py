@@ -1,8 +1,6 @@
-from django.test import TestCase
 from rest_framework.reverse import reverse
 
 from applications.common.tests.tests_base import BaseTestCase
-
 from applications.core.models import *
 
 
@@ -90,7 +88,7 @@ class PlaceTestCase(BaseCoreTestCase):
         )
 
         self.response = self.client.post(reverse("place-list"), data=data)
-        decoded_response = self.check_response(status_code=459)
+        decoded_response = self.check_response(status_code=409)
         self.assertEquals(decoded_response, {
             "detail": "Place already exists",
             "code": "place_already_exists",
